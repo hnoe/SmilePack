@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>SMILE PACK - приложение для удобной передачи смайликов на форумах и сайтах с поддержкой BBCode v.1.0</title>
+	<link rel="stylesheet" href="style.css">
+	<!--[if lte IE 9]>
+	<style type="text/css">
+		.gradient {
+			filter: none;
+		}
+
+		body {
+			margin-left: 232px;
+		}
+
+		#header {
+			left: 232px;
+		}
+
+		#bookmarklet, #sml {
+			margin-left: 10px;
+		}
+
+		#set, #setText {
+			margin-left: 258px;
+		}
+
+		#libsBorder {
+			display: none;
+		}
+
+		#libs {
+			left: 0;
+		}
+
+		#libsFreeze {
+			display: none;
+		}
+	</style>
+	<![endif]-->
+	<!--[if lte IE 8]>
+	<style type="text/css">
+		#set {
+			background-color: #fff;
+		}
+
+		#setText {
+			display: none;
+		}
+	</style>
+	<![endif]-->
+</head>
+<body>
+
+<div id="header">
+
+	<div id="bookmarklet">
+
+		<a id="smilePack" href="javascript:(function () { if (document.getElementById('SmilePackBookmarklet')) { var elem = document.getElementById('SmilePackBookmarklet'); if (elem.style.display === 'block') { elem.style.display = 'none'; } else { elem.style.display = 'block'; } } else { var iframe = document.createElement('iframe'); iframe.src = 'http://sp.hnoe.ru/sp.html'; iframe.name = 'SmilePackBookmarklet'; iframe.id = 'SmilePackBookmarklet'; iframe.frameborder = '0'; iframe.style.cssText = 'display: block; padding: 0; margin: 0; position: fixed; top: 0; left: 0; width: 100\u0025; height: 200px; background-color: #fff; border-bottom: 1px solid #ccc; z-index: 999999999; box-shadow: 0 0 10px 1px #444; overflow-y: auto;'; document.body.appendChild(iframe); var script = document.createElement('script'); script.src = 'http://sp.hnoe.ru/message.js'; script.id = 'SmilePackBookmarklet2'; document.body.appendChild(script); }}());">smile pack</a>
+
+		<p id="totalSml"></p>
+
+		<p id="directories">директории</p>
+
+		<p id="create">создать</p>
+
+		<div id="links">
+
+			<span id="help">помощь</span>
+			<span>|</span>
+			<span id="donate">на пиво</span>
+
+		</div>
+
+		<div id="smileFace">&#13019;</div>
+
+	</div>
+
+	<div id="set"></div>
+
+	<p id="setText">Перетащи сюда смайлики</p>
+
+</div>
+
+<div id="libs">
+
+	<h1>Смайлики</h1>
+
+	<span id="libsFreeze" title="закрепить окно">&#960;</span>
+
+	<ul>
+
+		<li>aiwan_1</li>
+		<li>aiwan_2</li>
+		<li>connie</li>
+		<li>laie</li>
+		<li>viannen</li>
+		<li>user_1</li>
+		<li>user_2</li>
+		<li>user_3</li>
+		<li>fool</li>
+		<li>mini</li>
+		<li>hd</li>
+		<li>big</li>
+
+	</ul>
+
+</div>
+
+<div id="libsBorder">
+
+	<div>&#9658;</div>
+
+</div>
+
+<div id="sml"></div>
+
+<div id="copy">
+	&copy; 2012 hnoe. Email: <a href="mailto:hnoe@hnoe.ru">hnoe@hnoe.ru</a><br>
+	В приложении использованы авторские смайлики от:
+	<a href="http://www.kolobok.us" onclick="return !window.open(this.href)">aiwan</a>,
+	ViShenk@,
+	snoozer,
+	Phil,
+	connie,
+	<a href="http://www.laie-smileys.com" onclick="return !window.open(this.href)">laie</a>,
+	viannen,
+	<a href="http://www.foolstown.com/smiles.htm" onclick="return !window.open(this.href)">fool</a>,
+	и других
+</div>
+
+<script>
+	// Проверяет совместимость, подгружает скрипны
+	(function (window) {
+		"use strict";
+		var document = window.document,
+				localStorage = window.localStorage,
+				supportStorage = false,
+				notSupport = "В вашем браузере не будет работать это приложение!",
+				notWork = "В вашем браузере отключена опция работы с локальным хранилищем. Включи ее!",
+				script;
+
+		if (!localStorage) {
+			document.body.style.textAlign = "center";
+			document.body.innerHTML = notSupport;
+		} else {
+			try {
+				localStorage.setItem('testLocalStorage', 1);
+				supportStorage = true;
+			} catch (e) {
+				document.body.style.textAlign = "center";
+				document.body.innerHTML = notWork;
+			}
+			if (supportStorage) {
+				localStorage.removeItem('testLocalStorage');
+
+				// подключает приложение SmilePack
+				script = document.createElement("script");
+				script.src = "SmilePack.js";
+				document.getElementsByTagName("head")[0].appendChild(script);
+			}
+		}
+	}(this));
+</script>
+
+<!--LiveInternet counter-->
+<script type="text/javascript"><!--
+new Image().src = "//counter.yadro.ru/hit?r" +
+		escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+		";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+				screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+		";" + Math.random();//--></script>
+<!--/LiveInternet-->
+
+</body>
+</html>
