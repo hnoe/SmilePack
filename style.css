@@ -705,7 +705,7 @@ body, #header, #set, #setText, #sml, #bookmarklet, #libs {
 }
 
 #smileFace, #smlWait {
-	-webkit-transition: all .5s; /*смайл не крутится - баг с шрифтами*/
+	-webkit-transition: all .5s;
 	-ms-transition: all .5s;
 	-o-transition: all .5s;
 	-moz-transition: all .5s;
