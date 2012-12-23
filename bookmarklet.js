@@ -1,10 +1,16 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: hnoe
- * Date: 07.12.12
- * Time: 16:12
- * To change this template use File | Settings | File Templates.
- */
+// ========================================================================
+// Smile Pack v1.1
+// http://sp.hnoe.ru
+// ========================================================================
+// Copyright 2012 hnoe
+// Email: hnoe@hnoe.ru
+//
+// Licensed under the GNU GPLv2
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at:
+//
+// http://www.gnu.org/licenses/gpl2.txt
+// ========================================================================
 
 (function (window) {
 	"use strict";
