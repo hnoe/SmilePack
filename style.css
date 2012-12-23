@@ -421,6 +421,10 @@ img.active {
 	left: 200px;
 }
 
+#back.help {
+	background: transparent;
+}
+
 #message-close {
 	cursor: pointer;
 	position: absolute;
@@ -434,7 +438,7 @@ img.active {
 	color: #333;
 }
 
-#mCreate, #mHelp, #mDonate, #mList {
+#mCreate, #mDonate, #mList {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -458,7 +462,7 @@ img.active {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f6f8f9', endColorstr = '#f5f7f9', GradientType = 0);
 }
 
-#mCreate, #mHelp, #mDonate {
+#mCreate, #mDonate {
 	top: 10%;
 }
 
@@ -527,42 +531,6 @@ img.active {
 
 #mCreateReplaceNo {
 	background: #900;
-}
-
-#mHelp {
-	width: 740px;
-	padding: 34px 39px 24px;
-}
-
-.mHelpP1 {
-	font-size: 14px;
-	line-height: 23px;
-	margin-bottom: 10px;
-}
-
-#mHelp a {
-	color: #1a3dc1;
-}
-
-#mHelp a:hover {
-	color: #f00;
-}
-
-#mHelp ol {
-	list-style: decimal inside;
-	border: 1px solid #ccc;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	background-color: #fff;
-	margin-bottom: 20px;
-	font-size: 12px;
-	line-height: 22px;
-	padding: 20px;
-}
-
-.mHelpP2 {
-	color: #c00;
 }
 
 #mDonate {
@@ -696,6 +664,186 @@ img.active {
 	background-color: #eee;
 }
 
+#mHelp {
+	overflow: auto;
+	padding: 10px 20px;
+	min-width: 1000px;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: #333;
+	background: rgb(246, 248, 249);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjhmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjZTVlYmVlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNSUiIHN0b3AtY29sb3I9IiNkN2RlZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjVmN2Y5IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top, rgba(246, 248, 249, 1) 0%, rgba(229, 235, 238, 1) 3%, rgba(215, 222, 227, 1) 5%, rgba(245, 247, 249, 1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(246, 248, 249, 1)), color-stop(3%, rgba(229, 235, 238, 1)), color-stop(5%, rgba(215, 222, 227, 1)), color-stop(100%, rgba(245, 247, 249, 1)));
+	background: -webkit-linear-gradient(top, rgba(246, 248, 249, 1) 0%, rgba(229, 235, 238, 1) 3%, rgba(215, 222, 227, 1) 5%, rgba(245, 247, 249, 1) 100%);
+	background: -o-linear-gradient(top, rgba(246, 248, 249, 1) 0%, rgba(229, 235, 238, 1) 3%, rgba(215, 222, 227, 1) 5%, rgba(245, 247, 249, 1) 100%);
+	background: -ms-linear-gradient(top, rgba(246, 248, 249, 1) 0%, rgba(229, 235, 238, 1) 3%, rgba(215, 222, 227, 1) 5%, rgba(245, 247, 249, 1) 100%);
+	background: linear-gradient(to bottom, rgba(246, 248, 249, 1) 0%, rgba(229, 235, 238, 1) 3%, rgba(215, 222, 227, 1) 5%, rgba(245, 247, 249, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f6f8f9', endColorstr = '#f5f7f9', GradientType = 0);
+	opacity: 1;
+}
+
+#mHelp.active {
+	opacity: 0;
+}
+
+#mHelp h1 {
+	color: #555;
+	font-size: 28px;
+	line-height: 37px;
+	padding: 22px;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+#preHelp {
+	padding: 18px 10px 4px;
+	text-align: left;
+}
+
+#mHelp ol {
+	position: relative; /*баг в opera (без этого нет отступа снизу)*/
+	padding: 0 0 230px 30px;
+	text-align: left;
+	list-style: decimal outside none;
+	width: 900px;
+}
+
+#mHelp ol li {
+	background-color: #f2f2f2;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #555;
+	font-size: 19px;
+	font-weight: bold;
+	margin: 28px 0;
+	padding: 28px 0;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+#mHelp ol p {
+	color: #333;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 20px;
+	padding: 0 0 26px 20px;
+}
+
+#mHelp ol img {
+	background-color: #fff;
+	-webkit-box-shadow: 2px 2px 6px 0 #777;
+	-moz-box-shadow: 2px 2px 6px 0 #777;
+	box-shadow: 2px 2px 6px 0 #777;
+	display: block;
+	margin: auto;
+	padding: 4px;
+}
+
+#closeHelp {
+	background-color: #ffe700;
+	height: 37px;
+	width: 147px;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	border-top: 2px solid #fff;
+	border-left: 2px solid #fff;
+	-webkit-border-top-left-radius: 7px;
+	-moz-border-top-left-radius: 7px;
+	border-top-left-radius: 7px;
+	-webkit-box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+	-moz-box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+	box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+	color: #444;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 26px;
+	line-height: 24px;
+	text-align: right;
+	text-shadow: 1px 1px 1px #fff;
+	padding: 10px 15px;
+
+	-webkit-animation: blick 1s ease infinite alternate;
+	-moz-animation: blick 1s ease infinite alternate;
+	-o-animation: blick 1s ease infinite alternate;
+	animation: blick 1s ease infinite alternate;
+}
+
+@-webkit-keyframes blick {
+	from {
+		background-color: #333;
+		color: #666;
+		-webkit-box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+		box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+	}
+	to {
+		background-color: #aaa;
+		color: #222;
+		-webkit-box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+		box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+	}
+}
+
+@-moz-keyframes blick {
+	from {
+		background-color: #333;
+		color: #666;
+		-moz-box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+		box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+	}
+	to {
+		background-color: #aaa;
+		color: #222;
+		-moz-box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+		box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+	}
+}
+
+@-o-keyframes blick {
+	from {
+		background-color: #333;
+		color: #666;
+		box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+	}
+	to {
+		background-color: #aaa;
+		color: #222;
+		box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+	}
+}
+
+@-keyframes blick {
+	from {
+		background-color: #333;
+		color: #666;
+		-webkit-box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+		-moz-box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+		box-shadow: -4px -4px 9px 8px #888, -4px -4px 0 15px #000;
+	}
+	to {
+		background-color: #aaa;
+		color: #222;
+		-webkit-box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+		-moz-box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+		box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+	}
+}
+
+/*для тех у кого нет анимации:*/
+#closeHelp:hover {
+	background-color: #fe0;
+	color: #222;
+	-webkit-box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+	-moz-box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+	box-shadow: -4px -4px 9px 8px #aaa, -4px -4px 0 15px #222;
+}
+
+#closeHelp.active {
+	display: none;
+}
+
 body, #header, #set, #setText, #sml, #bookmarklet, #libs {
 	-webkit-transition: all .1s;
 	-ms-transition: all .1s;
@@ -704,7 +852,7 @@ body, #header, #set, #setText, #sml, #bookmarklet, #libs {
 	transition: all .1s;
 }
 
-#smileFace, #smlWait {
+#smileFace, #smlWait, #mHelp {
 	-webkit-transition: all .5s;
 	-ms-transition: all .5s;
 	-o-transition: all .5s;
