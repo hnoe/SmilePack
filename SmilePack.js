@@ -1,10 +1,16 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: hnoe
- * Date: 07.11.12
- * Time: 17:33
- * To change this template use File | Settings | File Templates.
- */
+// ========================================================================
+// Smile Pack v1.1
+// http://sp.hnoe.ru
+// ========================================================================
+// Copyright 2012 hnoe
+// Email: hnoe@hnoe.ru
+//
+// Licensed under the GNU GPLv2
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at:
+//
+// http://www.gnu.org/licenses/gpl2.txt
+// ========================================================================
 
 (function (window) {
 	"use strict";
@@ -35,7 +41,7 @@
 		loadFlag = false, //////////////////////////////////////// флаг при загрузке смайликов
 
 		tooltip = {
-			directories: "У тебя пока еще нет директорий! Попробуй создать ее.",
+			directories: "У тебя пока еще нет директорий! Попробуй создать ее!",
 			create     : "Сначала выбери смайлики и перемести их в область сверху!",
 			smilePack  : "Это надо сохранить в закладках. Просто перетащи это в закладки!"
 		},
@@ -585,7 +591,6 @@
 
 			// если в хранилиже есть свойства
 			if (arr.length) {
-
 				message.id = "mList";
 				p.id = "headList";
 				p.innerHTML = "Директории Smile Pack (<b>" + arr.length + "</b>)";
@@ -656,65 +661,6 @@
 			} else {
 				giveTooltip(tooltip.directories, this);
 			}
-		},
-
-
-////////////////////////////////////////////////////HELP////////////////////////////////////////////////////////////////
-	// Показывает сообщение "помощь" (help)
-		showHelp = function () {
-			var message = document.createElement("div"),
-				p = document.createElement("p"),
-				ol = document.createElement("ol"),
-				li1 = document.createElement("li"),
-				li2 = document.createElement("li"),
-				li3 = document.createElement("li"),
-				li4 = document.createElement("li"),
-				li5 = document.createElement("li"),
-				closeButton = document.createElement("span"),
-				p2 = document.createElement("p");
-
-			message.id = "mHelp";
-
-			p.innerHTML = "Это букмарклет (закладка-апплет для браузера) для вставки смайлов в текстовые сообщения " +
-				"на сайтах, форумах c поддержкой " +
-				"<a href=\"http://ru.wikipedia.org/wiki/BbCode\" onclick=\"return !window.open(this.href)\">" +
-				"BBcode</a>.<br>" +
-				"Позволяет создать индивидуальные наборы смайлов и очень прост в использовании.<br>" +
-				"Суть представлена на " +
-				"<a href=\"http://vimeo.com/55932318\" onclick=\"return !window.open(this.href)\">видео</a> " +
-				"или тут:";
-			p.className = "mHelpP1";
-
-			li1.innerHTML = "Перетащи (сохрани) smile pack в закладки браузера.";
-			li2.innerHTML = "Создай директории из смайликов. Количество смайликов в одной " +
-				"директории не более " + limit + ". Количество директорий <b>не ограничено</b>!";
-			li3.innerHTML = "Открой закладку smile pack на стороннем ресурсе во время редакции сообщения.";
-			li4.innerHTML = "Кликни по смайлику и в нужное место в текстовом поле.";
-			li5.innerHTML = "Программа автоматически вставит в тестовое поле ссылку на выбранный смайлик.";
-
-			p2.innerHTML = "Важно: все твои директории сохраняются локально в браузере. " +
-				"При смене/удалении браузера все данные будут утеряны!";
-			p2.className = "mHelpP2";
-
-			closeButton.id = "message-close";
-			closeButton.title = "закрыть это окно";
-			closeButton.innerHTML = "&#10008;";
-
-			ol.appendChild(li1);
-			ol.appendChild(li2);
-			ol.appendChild(li3);
-			ol.appendChild(li4);
-			ol.appendChild(li5);
-
-			message.appendChild(p);
-			message.appendChild(ol);
-			message.appendChild(p2);
-			message.appendChild(closeButton);
-
-			switchMessage(message);
-
-			// закрывает сообщение
-			closeButton.onclick = switchMessage;
 		},
 
 
@@ -953,6 +899,78 @@
 				switchMessage();
 				localStorage.settingsSmilePack_freezeLibs = "true";
 			}
+		},
+
+
+////////////////////////////////////////////////////Welcome/////////////////////////////////////////////////////////////
+	// Показывает ознакомительный слайд при первой загрузке (welcome)
+		showHelp = function () {
+			var message = document.createElement("div"),
+				article = document.createElement("article"),
+				h1 = document.createElement("h1"),
+				p = document.createElement("p"),
+				ol = document.createElement("ol"),
+				li1 = document.createElement("li"),
+				li2 = document.createElement("li"),
+				li3 = document.createElement("li"),
+				t1 = document.createElement("p"),
+				t2 = document.createElement("p"),
+				t3 = document.createElement("p"),
+				img1 = document.createElement("img"),
+				img2 = document.createElement("img"),
+				img3 = document.createElement("img"),
+				closeButton = document.createElement("p");
+
+			message.id = "mHelp";
+			h1.innerHTML = "Smile Pack - любимые смайлики всегда под рукой!";
+			p.id = "preHelp";
+			p.innerHTML = "Приложение для удобной передачи смайликов на форумы и сайты. " +
+				"<br>" +
+				"Узнай как это работает в 3 шага:";
+
+			t1.innerHTML = img1.alt = "Перетащи красный значок Smile Pack в закладки.";
+			t2.innerHTML = img2.alt = "Создай директории из любимых смайликов используя библиотеки.";
+			t3.innerHTML = img3.alt = "Открывай Smile Pack на форумах и сайтах и размещай смайлики в два клика!";
+
+			img1.src = "img/1.png";
+			img2.src = "img/2.png";
+			img3.src = "img/3.png";
+
+			img1.style.cssText = "width: 800px; height: 340px;";
+			img2.style.cssText = "width: 800px; height: 370px;";
+			img3.style.cssText = "width: 804px; height: 508px;";
+
+			closeButton.id = "closeHelp";
+			closeButton.innerHTML = "Smile Pack<br>&#10149;";
+
+			article.appendChild(h1);
+			article.appendChild(p);
+
+			li1.appendChild(t1);
+			li2.appendChild(t2);
+			li3.appendChild(t3);
+
+			li1.appendChild(img1);
+			li2.appendChild(img2);
+			li3.appendChild(img3);
+
+			ol.appendChild(li1);
+			ol.appendChild(li2);
+			ol.appendChild(li3);
+
+			message.appendChild(article);
+			message.appendChild(ol);
+			message.appendChild(closeButton);
+
+			switchMessage(message);
+			document.getElementById("back").className = "help";
+
+			closeButton.onmousedown = function () {
+				message.className = closeButton.className = "active";
+				window.setTimeout(function () {
+					switchMessage();
+				}, 700);
+			};
 		};
 
 
@@ -986,6 +1004,12 @@
 			e.cancelBubble = true;
 		}
 	};
+
+	// Help для нового пользователя
+	if (!localStorage.length) {
+		showHelp();
+		localStorage.settingsSmilePack_freezeLibs = "true";
+	}
 
 	// Выдвигает библиотеки при загрузке при включенном libsFreeze
 	if (localStorage.settingsSmilePack_freezeLibs === "true") {
