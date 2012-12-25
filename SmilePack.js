@@ -902,13 +902,21 @@
 		},
 
 
-////////////////////////////////////////////////////Welcome/////////////////////////////////////////////////////////////
-	// Показывает ознакомительный слайд при первой загрузке (welcome)
+////////////////////////////////////////////////////Help////////////////////////////////////////////////////////////////
+	// Открывает help
 		showHelp = function () {
 			var message = document.createElement("div"),
 				article = document.createElement("article"),
 				h1 = document.createElement("h1"),
 				p = document.createElement("p"),
+
+				menu = document.createElement("div"),
+				m1 = document.createElement("p"),
+				m2 = document.createElement("p"),
+
+				m1Cont = document.createElement("div"),
+				m2Cont = document.createElement("div"),
+
 				ol = document.createElement("ol"),
 				li1 = document.createElement("li"),
 				li2 = document.createElement("li"),
@@ -919,15 +927,24 @@
 				img1 = document.createElement("img"),
 				img2 = document.createElement("img"),
 				img3 = document.createElement("img"),
+
 				closeButton = document.createElement("p");
 
 			message.id = "mHelp";
 			h1.innerHTML = "Smile Pack - любимые смайлики всегда под рукой!";
 			p.id = "preHelp";
-			p.innerHTML = "Приложение для удобной передачи смайликов на форумы и сайты. " +
-				"<br>" +
-				"Узнай как это работает в 3 шага:";
+			p.innerHTML = "Приложение для удобной передачи смайликов на форумы и сайты.";
 
+			menu.id = "menuHelp";
+			m1.id = "menu1";
+			m1.innerHTML = "Инструкция";
+			m2.id = "menu2";
+			m2.innerHTML = "Видео";
+
+			m1Cont.id = "m1Cont";
+			m2Cont.id = "m2Cont";
+
+			// Контент для контейнера m1Cont
 			t1.innerHTML = img1.alt = "Перетащи красный значок Smile Pack в закладки.";
 			t2.innerHTML = img2.alt = "Создай директории из любимых смайликов используя библиотеки.";
 			t3.innerHTML = img3.alt = "Открывай Smile Pack на форумах и сайтах и размещай смайлики в два клика!";
@@ -936,15 +953,9 @@
 			img2.src = "img/2.png";
 			img3.src = "img/3.png";
 
-			img1.style.cssText = "width: 800px; height: 340px;";
-			img2.style.cssText = "width: 800px; height: 370px;";
-			img3.style.cssText = "width: 804px; height: 508px;";
-
-			closeButton.id = "closeHelp";
-			closeButton.innerHTML = "Smile Pack<br>&#10149;";
-
-			article.appendChild(h1);
-			article.appendChild(p);
+			img1.style.cssText = "width: 700px; height: 298px;";
+			img2.style.cssText = "width: 700px; height: 324px;";
+			img3.style.cssText = "width: 700px; height: 442px;";
 
 			li1.appendChild(t1);
 			li2.appendChild(t2);
@@ -958,19 +969,52 @@
 			ol.appendChild(li2);
 			ol.appendChild(li3);
 
+			m1Cont.appendChild(ol);
+
+			// Контент для контейнера m2Cont
+			m2Cont.innerHTML = '<iframe width="815" ' +
+				'height="458" ' +
+				'src="http://www.youtube-nocookie.com/embed/yKRrWsKcD7s?rel=0" ' +
+				'frameborder="0" allowfullscreen></iframe>';
+
+			closeButton.id = "message-close";
+			closeButton.innerHTML = "&#10008;";
+
+			article.appendChild(h1);
+			article.appendChild(p);
+
+			menu.appendChild(m1);
+			menu.appendChild(m2);
+
 			message.appendChild(article);
-			message.appendChild(ol);
+			message.appendChild(menu);
+			message.appendChild(m1Cont);
+			message.appendChild(m2Cont);
 			message.appendChild(closeButton);
+
+			// По умолчанию первая вкладка открыта
+			m1.className = m1Cont.className = "active";
 
 			switchMessage(message);
 			document.getElementById("back").className = "help";
 
-			closeButton.onmousedown = function () {
-				message.className = closeButton.className = "active";
-				window.setTimeout(function () {
-					switchMessage();
-				}, 700);
+			menu.onmousedown = function (e) {
+				e = fixEvent(e);
+
+				if (e.which !== 1 || e.target.className === "active") {
+					return;
+				}
+
+				if (e.target.id === "menu1") {
+					m2.className = m2Cont.className = "";
+					m1.className = m1Cont.className = "active";
+				} else {
+					m1.className = m1Cont.className = "";
+					m2.className = m2Cont.className = "active";
+				}
 			};
+
+			closeButton.onmousedown = switchMessage;
 		};
 
 
@@ -1005,7 +1049,7 @@
 		}
 	};
 
-	// Help для нового пользователя
+	// Help для нового пользователя, библиотеки выдвинуты
 	if (!localStorage.length) {
 		showHelp();
 		localStorage.settingsSmilePack_freezeLibs = "true";
