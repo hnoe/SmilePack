@@ -940,7 +940,6 @@
 			ol.appendChild(li2);
 			ol.appendChild(li3);
 
-			container.innerHTML = "";
 			container.appendChild(ol);
 		},
 
@@ -1008,10 +1007,12 @@
 				if (e.target.id === "menu1") {
 					m2.className = "";
 					m1.className = "active";
+					cont.innerHTML = "";
 					showInstructionsForHelp(cont);
 				} else {
 					m1.className = "";
 					m2.className = "active";
+					cont.innerHTML = "";
 					showVideoForHelp(cont);
 				}
 			};
