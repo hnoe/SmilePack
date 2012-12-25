@@ -903,21 +903,9 @@
 
 
 ////////////////////////////////////////////////////Help////////////////////////////////////////////////////////////////
-	// Открывает help
-		showHelp = function () {
-			var message = document.createElement("div"),
-				article = document.createElement("article"),
-				h1 = document.createElement("h1"),
-				p = document.createElement("p"),
-
-				menu = document.createElement("div"),
-				m1 = document.createElement("p"),
-				m2 = document.createElement("p"),
-
-				m1Cont = document.createElement("div"),
-				m2Cont = document.createElement("div"),
-
-				ol = document.createElement("ol"),
+	// Открывает инструкцию в контейнере (help)
+		showInstructionsForHelp = function (container) {
+			var ol = document.createElement("ol"),
 				li1 = document.createElement("li"),
 				li2 = document.createElement("li"),
 				li3 = document.createElement("li"),
@@ -926,25 +914,8 @@
 				t3 = document.createElement("p"),
 				img1 = document.createElement("img"),
 				img2 = document.createElement("img"),
-				img3 = document.createElement("img"),
+				img3 = document.createElement("img");
 
-				closeButton = document.createElement("p");
-
-			message.id = "mHelp";
-			h1.innerHTML = "Smile Pack - любимые смайлики всегда под рукой!";
-			p.id = "preHelp";
-			p.innerHTML = "Приложение для удобной передачи смайликов на форумы и сайты.";
-
-			menu.id = "menuHelp";
-			m1.id = "menu1";
-			m1.innerHTML = "Инструкция";
-			m2.id = "menu2";
-			m2.innerHTML = "Видео";
-
-			m1Cont.id = "m1Cont";
-			m2Cont.id = "m2Cont";
-
-			// Контент для контейнера m1Cont
 			t1.innerHTML = img1.alt = "Перетащи красный значок Smile Pack в закладки.";
 			t2.innerHTML = img2.alt = "Создай директории из любимых смайликов используя библиотеки.";
 			t3.innerHTML = img3.alt = "Открывай Smile Pack на форумах и сайтах и размещай смайлики в два клика!";
@@ -969,13 +940,42 @@
 			ol.appendChild(li2);
 			ol.appendChild(li3);
 
-			m1Cont.appendChild(ol);
+			container.innerHTML = "";
+			container.appendChild(ol);
+		},
 
-			// Контент для контейнера m2Cont
-			m2Cont.innerHTML = '<iframe width="815" ' +
+	// Открывает видео в контейнере (help)
+		showVideoForHelp = function (container) {
+			container.innerHTML = '<iframe width="815" ' +
 				'height="458" ' +
 				'src="http://www.youtube-nocookie.com/embed/yKRrWsKcD7s?rel=0" ' +
 				'frameborder="0" allowfullscreen></iframe>';
+		},
+
+	// Открывает помощь (help)
+		showHelp = function () {
+			var message = document.createElement("div"),
+				article = document.createElement("article"),
+				h1 = document.createElement("h1"),
+				p = document.createElement("p"),
+				menu = document.createElement("div"),
+				m1 = document.createElement("p"),
+				m2 = document.createElement("p"),
+				cont = document.createElement("div"),
+				closeButton = document.createElement("p");
+
+			message.id = "mHelp";
+			h1.innerHTML = "Smile Pack - любимые смайлики всегда под рукой!";
+			p.id = "preHelp";
+			p.innerHTML = "Приложение для удобной передачи смайликов на форумы и сайты.";
+
+			menu.id = "menuHelp";
+			m1.id = "menu1";
+			m1.innerHTML = "Инструкция";
+			m2.id = "menu2";
+			m2.innerHTML = "Видео";
+
+			cont.id = "contHelp";
 
 			closeButton.id = "message-close";
 			closeButton.innerHTML = "&#10008;";
@@ -988,12 +988,12 @@
 
 			message.appendChild(article);
 			message.appendChild(menu);
-			message.appendChild(m1Cont);
-			message.appendChild(m2Cont);
+			message.appendChild(cont);
 			message.appendChild(closeButton);
 
 			// По умолчанию первая вкладка открыта
-			m1.className = m1Cont.className = "active";
+			m1.className = "active";
+			showInstructionsForHelp(cont);
 
 			switchMessage(message);
 			document.getElementById("back").className = "help";
@@ -1006,11 +1006,13 @@
 				}
 
 				if (e.target.id === "menu1") {
-					m2.className = m2Cont.className = "";
-					m1.className = m1Cont.className = "active";
+					m2.className = "";
+					m1.className = "active";
+					showInstructionsForHelp(cont);
 				} else {
-					m1.className = m1Cont.className = "";
-					m2.className = m2Cont.className = "active";
+					m1.className = "";
+					m2.className = "active";
+					showVideoForHelp(cont);
 				}
 			};
 

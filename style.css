@@ -743,16 +743,11 @@ img.active {
 	box-shadow: -1px 1px 2px 1px #777;
 }
 
-#m1Cont, #m2Cont {
+#contHelp {
 	background-color: #fff;
 	border: 1px solid #aaa;
 	border-top: none;
 	padding: 40px 0;
-	display: none;
-}
-
-#m1Cont.active, #m2Cont.active {
-	display: block;
 }
 
 #mHelp ol {
