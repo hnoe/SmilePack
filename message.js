@@ -80,6 +80,10 @@
 	// определяет текст перед курсором (start) и текст после курсора (end).
 	// Проверяет есть ли наличие в data ключа, полученного из стороннего окна. Если есть вызывает функцию insertSML.
 		getPosition = function (e) {
+			if (!data) {
+				return;
+			}
+
 			e = fixEvent(e);
 
 			var elem, start, end;
@@ -90,9 +94,7 @@
 				start = elem.value.slice(0, elem.selectionStart);
 				end = elem.value.slice(elem.selectionStart, elem.value.length);
 
-				if (data) {
-					insertSML(elem, start, end);
-				}
+				insertSML(elem, start, end);
 			} else {
 				data = "";
 				source.postMessage("", "*");
