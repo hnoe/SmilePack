@@ -129,22 +129,22 @@
 				totalSml.style.display = "none";
 				var elem = document.createElement("div"),
 					opacity = 1,
-					int;
+					interval;
 				elem.id = "tooltip";
 				elem.innerHTML = text;
 				bookmarklet.appendChild(elem);
 
 				element.onmouseout = function () {
-					if (int) {
+					if (interval) {
 						return;
 					}
-					int = window.setInterval(function () {
+					interval = window.setInterval(function () {
 						opacity -= 0.01;
 						elem.style.opacity = opacity;
 						if (opacity < 0.3) {
 							elem.parentNode.removeChild(elem);
 							totalSml.style.display = "";
-							window.clearInterval(int);
+							window.clearInterval(interval);
 						}
 					}, 10);
 				};
