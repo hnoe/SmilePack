@@ -947,7 +947,7 @@
 		showVideoForHelp = function (container) {
 			container.innerHTML = '<iframe width="815" ' +
 				'height="458" ' +
-				'src="http://www.youtube-nocookie.com/embed/yKRrWsKcD7s?rel=0" ' +
+				'src="http://www.youtube.com/embed/yKRrWsKcD7s?rel=0" ' +
 				'frameborder="0" allowfullscreen></iframe>';
 		},
 
