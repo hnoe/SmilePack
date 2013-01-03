@@ -788,7 +788,7 @@ img.active {
 	padding: 4px;
 }
 
-body, #header, #set, #setText, #sml, #bookmarklet, #libs {
+#header, #set, #setText, #sml, #bookmarklet, #libs {
 	-webkit-transition: all .1s;
 	-ms-transition: all .1s;
 	-o-transition: all .1s;
