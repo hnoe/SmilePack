@@ -82,7 +82,7 @@ body.openLibs {
 	font-weight: bold;
 }
 
-#create {
+#create, #directories {
 	background: #090;
 	border: 2px solid #fff;
 	-webkit-border-radius: 5px;
@@ -94,38 +94,21 @@ body.openLibs {
 	color: #fff;
 	padding: 7px;
 	position: absolute;
-	right: 20px;
-	text-decoration: none;
 	text-shadow: 1px 1px 0 #777;
 	top: 130px;
 	width: 75px;
 	cursor: pointer;
 }
 
-#create.active {
-	background-color: #0c0;
+#create {
+	right: 20px;
 }
 
 #directories {
-	background: #090;
-	border: 2px solid #fff;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	-webkit-box-shadow: 0 0 1px 1px #bbb;
-	-moz-box-shadow: 0 0 1px 1px #bbb;
-	box-shadow: 0 0 1px 1px #bbb;
-	color: #fff;
-	cursor: pointer;
 	left: 20px;
-	padding: 7px;
-	position: absolute;
-	text-shadow: 1px 1px 0 #777;
-	top: 130px;
-	width: 75px;
 }
 
-#directories.active {
+#create.active, #directories.active {
 	background-color: #0c0;
 }
 
