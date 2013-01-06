@@ -195,6 +195,6 @@
 
 	addEvent(dirs, "mousedown", changeDirectory);
 	addEvent(window, "load", formBookmarklet);
-	addEvent(window, "click", activateElement);
+	addEvent(document, "mousedown", activateElement);
 	addEvent(window, "message", deactivateElement);
 }(this));
