@@ -44,7 +44,7 @@
 			}
 
 			if (!e.which && e.button) {
-				e.which = e.button & 1 ? 1 : ( e.button & 2 ? 3 : ( e.button & 4 ? 2 : 0 ) )
+				e.which = e.button & 1 ? 1 : ( e.button & 2 ? 3 : ( e.button & 4 ? 2 : 0 ) );
 			}
 
 			return e;
@@ -64,12 +64,13 @@
 	// Возвращает массив свойств localStorage (без cвойств для кеша и настроек) в алфавитном порядке
 		lengthLocalStorage = function () {
 			var regEx = /libraryLocalStorageCacheName_|settingsSmilePack_/,
-				sp,
-				nameArray = [];
+				nameArray = [],
+				i,
+				len;
 
-			for (sp in localStorage) {
-				if (localStorage.hasOwnProperty(sp) && !regEx.test(sp) && sp !== "length") {
-					nameArray.push(sp);
+			for (i = 0, len = localStorage.length; i < len; i += 1) {
+				if (!regEx.test(localStorage.key(i))) {
+					nameArray.push(localStorage.key(i));
 				}
 			}
 

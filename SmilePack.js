@@ -32,6 +32,7 @@
 		totalSml = document.getElementById("totalSml"), ////////// отображает кол-во элементов в set
 		help = document.getElementById("help"), ////////////////// кнопка помощь ("HELP")
 		donate = document.getElementById("donate"), ////////////// кнопка для пожертвований
+		otherVersion = document.getElementById("otherVersion"), // ссылка переключения версий
 
 		dragObject = {}, ///////////////////////////////////////// объект для drag-n-drop
 		limit = 40, ////////////////////////////////////////////// допустимое кол-во элементов в set
@@ -68,7 +69,7 @@
 			}
 
 			if (!e.which && e.button) {
-				e.which = e.button & 1 ? 1 : ( e.button & 2 ? 3 : ( e.button & 4 ? 2 : 0 ) )
+				e.which = e.button & 1 ? 1 : ( e.button & 2 ? 3 : ( e.button & 4 ? 2 : 0 ) );
 			}
 
 			return e;
@@ -156,7 +157,7 @@
 			var back = document.getElementById("back");
 			if (back) {
 				back.parentNode.removeChild(back);
-				document.body.style.overflow = "auto";
+				document.body.style.overflow = "";
 				return;
 			}
 
@@ -402,7 +403,7 @@
 					}
 				};
 
-			// если имя не соответствует или "length" (баг в opera)
+			// если имя не соответствует или "length" (зарезервированное слово)
 			if (!input.value || regEx.test(input.value) || input.value === "length") {
 				input.className = "active";
 				animateError();
@@ -470,12 +471,13 @@
 	// Возвращает массив свойств localStorage (без cвойств для кеша и настроек) в алфавитном порядке (directories)
 		lengthLocalStorage = function () {
 			var regEx = /libraryLocalStorageCacheName_|settingsSmilePack_/,
-				sp,
-				nameArray = [];
+				nameArray = [],
+				i,
+				len;
 
-			for (sp in localStorage) {
-				if (localStorage.hasOwnProperty(sp) && !regEx.test(sp) && sp !== "length") {
-					nameArray.push(sp);
+			for (i = 0, len = localStorage.length; i < len; i += 1) {
+				if (!regEx.test(localStorage.key(i))) {
+					nameArray.push(localStorage.key(i));
 				}
 			}
 
@@ -524,7 +526,7 @@
 			directory.parentNode.className = "active";
 		},
 
-	// Получает информацию о работе в директориях (directories)
+	// Удаляет директории (directories)
 		deleteFromDirectories = function (elem, p, cont) {
 			var li = elem.parentNode,
 				dirName = li.firstChild.innerHTML,
@@ -549,10 +551,6 @@
 
 			document.onclick = function (e) {
 				e = fixEvent(e);
-
-				if (e.which !== 1) {
-					return;
-				}
 
 				if (!document.getElementById("questDel")) {
 					return;
@@ -1018,6 +1016,38 @@
 			};
 
 			closeButton.onmousedown = switchMessage;
+		},
+
+
+////////////////////////////////////////////////OtherVersion////////////////////////////////////////////////////////////
+	// Прописывает в элемент otherVersion другую версию
+		giveContentForOtherVersion = function () {
+			if (localStorage.settingsSmilePack_style === "lite") {
+				otherVersion.innerHTML = "<span>full</span> - версия для мощных ЭВМ";
+			} else {
+				otherVersion.innerHTML = "<span>lite</span> - версия для слабых ЭВМ";
+			}
+		},
+
+	// Меняет версию приложения
+		giveOtherVersion = function (e) {
+			e = fixEvent(e);
+
+			if (e.which !== 1 || e.target.tagName !== "SPAN") {
+				return;
+			}
+
+			var value = e.target.innerHTML,
+				style = document.getElementById("style");
+
+			if (value === "lite") {
+				style.href = "style_lite.css";
+			} else {
+				style.href = "style.css";
+			}
+
+			localStorage.settingsSmilePack_style = value;
+			giveContentForOtherVersion();
 		};
 
 
@@ -1035,6 +1065,7 @@
 	addEvent(libs, "mousedown", getKey);
 	addEvent(libsBorder, "mouseover", showLibs);
 	addEvent(libsFreeze, "click", freezeLibs);
+	addEvent(otherVersion, "mousedown", giveOtherVersion);
 
 	document.onmousedown = document.body.onselectstart = smilePack.onclick = function () {
 		return false;
@@ -1067,4 +1098,5 @@
 	// Выполнить при загрузке
 	loadLib();
 	lengthLocalStorage();
+	giveContentForOtherVersion();
 }(this));
