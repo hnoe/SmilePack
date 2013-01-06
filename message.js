@@ -57,6 +57,39 @@
 			}
 		},
 
+	// Возвращает позицию курсора
+		getCaretPos = function (el) {
+			var selStart, r, re, rc, add_newlines, i;
+			if (el.selectionStart) {
+				selStart = el.selectionStart;
+			} else if (document.selection) {
+				el.focus();
+
+				r = document.selection.createRange();
+				if (r === null) {
+					return 0;
+				}
+
+				re = el.createTextRange();
+				rc = re.duplicate();
+				re.moveToBookmark(r.getBookmark());
+				rc.setEndPoint('EndToStart', re);
+
+				add_newlines = 0;
+				for (i = 0; i < rc.text.length; i += 1) {
+					if (rc.text.substr(i, 2) === '\r\n') {
+						add_newlines += 2;
+						i += 1;
+					}
+				}
+
+				selStart = rc.text.length - add_newlines;
+			} else {
+				selStart = 0;
+			}
+			return selStart;
+		},
+
 	// Получает сообщение от стороннего окна.
 		listener = function (e) {
 			e = fixEvent(e);
@@ -86,13 +119,14 @@
 
 			e = fixEvent(e);
 
-			var elem, start, end;
+			var elem, start, end, pos;
 
 			elem = document.elementFromPoint(e.clientX, e.clientY);
+			pos = getCaretPos(elem);
 			if (elem.tagName === "TEXTAREA" || elem.type === "text") {
 
-				start = elem.value.slice(0, elem.selectionStart);
-				end = elem.value.slice(elem.selectionStart, elem.value.length);
+				start = elem.value.slice(0, pos);
+				end = elem.value.slice(pos, elem.value.length);
 
 				insertSML(elem, start, end);
 			} else {
@@ -103,5 +137,5 @@
 
 
 	addEvent(window, "message", listener);
-	addEvent(window, "click", getPosition);
+	addEvent(document, "click", getPosition);
 }(this));
