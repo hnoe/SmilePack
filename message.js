@@ -12,7 +12,6 @@
 // http://www.gnu.org/licenses/gpl2.txt
 // ========================================================================
 
-
 (function (window) {
 	"use strict";
 
