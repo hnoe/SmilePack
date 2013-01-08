@@ -6,7 +6,7 @@
 }
 
 html {
-	background-color: #f2f2f2;
+	background: url("img/back_lite.jpg");
 }
 
 body {
@@ -16,18 +16,16 @@ body {
 	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
 	overflow: hidden;
 	width: 900px;
-	height: 500px;
-	margin: auto;
+	/*height: 500px;*/
+	margin: 1% auto 0;
+	padding: 10px 0;
 	background-color: #fff;
-	padding: 9px 0;
-	margin-top: 1%;
-	border: 1px solid #ccc;
-	box-shadow: 0 0 4px 1px #ccc;
+	box-shadow: 0 0 8px 2px #888;
 }
 
 #header {
 	height: 194px;
-	padding-top: 3px;
+	/*padding-top: 3px;*/
 }
 
 #bookmarklet, #set, #libs, #sml, #smlWait {
@@ -35,7 +33,7 @@ body {
 }
 
 #bookmarklet {
-	width: 238px;
+	width: 228px;
 	height: 182px;
 	margin: 0 0 0 10px;
 	background-color: #ffe622;
@@ -48,7 +46,7 @@ body {
 	background: #fa0000;
 	border: 1px solid #fff;
 	color: #fff;
-	font-size: 16px;
+	font-size: 15px;
 	line-height: 26px;
 	left: 0;
 	margin: auto;
@@ -57,7 +55,7 @@ body {
 	right: 0;
 	text-decoration: none;
 	text-shadow: 1px 1px 0 #777;
-	top: 16px;
+	top: 20px;
 	width: 98px;
 }
 
@@ -89,11 +87,11 @@ body {
 }
 
 #create {
-	right: 20px;
+	right: 18px;
 }
 
 #directories {
-	left: 20px;
+	left: 18px;
 }
 
 #links {
@@ -128,7 +126,7 @@ body {
 
 #set {
 	height: 182px;
-	margin: 0 10px 0 258px;
+	margin: 0 10px 0 248px;
 	overflow-y: auto;
 	position: relative;
 	z-index: 10;
@@ -150,7 +148,7 @@ body {
 }
 
 #sml, #smlWait {
-	margin: 0 10px 0 258px;
+	margin: 0 10px 0 248px;
 	height: 300px;
 }
 
@@ -199,7 +197,7 @@ body {
 #libs {
 	background-color: #444;
 	color: #fff;
-	width: 218px;
+	width: 208px;
 	height: 300px;
 	overflow: auto;
 	margin: 0 0 0 10px;
@@ -269,13 +267,14 @@ img.active {
 	background-color: #ffe622;
 	color: #1a3dc1;
 	font-weight: bold;
+	font-size: 11px;
+	line-height: 16px;
 	left: 0;
 	right: 0;
 	padding: 4px;
 	margin: 0 4px;
 	position: absolute;
-	top: 60px;
-	height: 35px;
+	top: 62px;
 	text-shadow: 1px 1px 1px #fff;
 }
 
