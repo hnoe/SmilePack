@@ -16,7 +16,6 @@ body {
 	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
 	overflow: hidden;
 	width: 900px;
-	/*height: 500px;*/
 	margin: 1% auto 0;
 	padding: 10px 0;
 	background-color: #fff;
@@ -25,7 +24,6 @@ body {
 
 #header {
 	height: 194px;
-	/*padding-top: 3px;*/
 }
 
 #bookmarklet, #set, #libs, #sml, #smlWait {
@@ -130,7 +128,7 @@ body {
 	overflow-y: auto;
 	position: relative;
 	z-index: 10;
-	background: rgba(255,255,255, 0.1); /*баг в ie 9 -10*/
+	background: rgba(255, 255, 255, 0.1); /*баг в ie 9 -10*/
 }
 
 #setText {
@@ -149,7 +147,7 @@ body {
 
 #sml, #smlWait {
 	margin: 0 10px 0 248px;
-	height: 300px;
+	height: 270px;
 }
 
 #sml {
@@ -160,7 +158,7 @@ body {
 #smlWait {
 	text-align: center;
 	font-size: 30px;
-	line-height: 300px;
+	line-height: 270px;
 	color: #444;
 }
 
@@ -198,7 +196,7 @@ body {
 	background-color: #444;
 	color: #fff;
 	width: 208px;
-	height: 300px;
+	height: 270px;
 	overflow: auto;
 	margin: 0 0 0 10px;
 	padding: 0 10px;
@@ -206,33 +204,36 @@ body {
 }
 
 #libs h1 {
-	font-size: 21px;
-	line-height: 39px;
+	font-size: 22px;
+	line-height: 40px;
 	text-align: center;
 }
 
 #libs ul {
 	list-style: disc inside;
+	height: 220px;
+	overflow-y: auto;
 }
 
 #libs li {
-	font-size: 15px;
-	line-height: 21px;
+	font-size: 12px;
+	line-height: 18px;
 	padding-left: 20px;
 	cursor: pointer;
 }
 
 #libs li:hover {
-
+	background-color: #555;
 }
 
 #libs li.active {
 	background-color: #fff;
-	color: #900;
+	color: #fa0000;
 }
 
 #libs li.active:hover {
-
+	cursor: default;
+	background: #fff;
 }
 
 #libsBorder, #libsFreeze {
@@ -240,7 +241,7 @@ body {
 }
 
 .imgs {
-	margin: 30px;
+	margin: 25px;
 	cursor: pointer;
 	position: relative;
 	z-index: 10;
