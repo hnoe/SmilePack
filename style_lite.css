@@ -571,13 +571,35 @@ img.active {
 	background-color: #fff;
 	border: 1px solid #777;
 	border-top: none;
-	padding: 40px 0;
+	padding: 26px 0 18px;
+}
+
+#radioContHelp span {
+	margin: 0 30px;
+	cursor: pointer;
+	border: 1px solid #fff;
+	padding: 5px 15px;
+	background-color: #888;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 0 2px #333;
+	text-transform: uppercase;
+}
+
+#radioContHelp span:hover {
+	background-color: #7a7a7a;
+}
+
+#radioContHelp span.active {
+	background-color: #4a4;
+	cursor: default;
 }
 
 #mHelp ol {
+	margin: 20px 0 0;
 	padding: 0 43px;
 	text-align: left;
-	list-style: decimal outside none;
+	list-style-type: none;
 }
 
 #mHelp ol li {
@@ -587,8 +609,13 @@ img.active {
 	font-size: 19px;
 	font-weight: bold;
 	margin-bottom: 30px;
-	padding: 28px 0;
+	padding: 20px 0;
 	text-shadow: 1px 1px 0 #fff;
+	display: none;
+}
+
+#mHelp ol li.active {
+	display: block;
 }
 
 #mHelp ol p {

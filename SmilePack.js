@@ -903,7 +903,12 @@
 ////////////////////////////////////////////////////Help////////////////////////////////////////////////////////////////
 	// Открывает инструкцию в контейнере (help)
 		showInstructionsForHelp = function (container) {
-			var ol = document.createElement("ol"),
+			var frag = document.createDocumentFragment(),
+				rCont = document.createElement("div"),
+				r1 = document.createElement("span"),
+				r2 = document.createElement("span"),
+				r3 = document.createElement("span"),
+				ol = document.createElement("ol"),
 				li1 = document.createElement("li"),
 				li2 = document.createElement("li"),
 				li3 = document.createElement("li"),
@@ -914,9 +919,19 @@
 				img2 = document.createElement("img"),
 				img3 = document.createElement("img");
 
-			t1.innerHTML = img1.alt = "Перетащи красный значок Smile Pack в закладки.";
-			t2.innerHTML = img2.alt = "Создай директории из любимых смайликов используя библиотеки.";
-			t3.innerHTML = img3.alt = "Открывай Smile Pack на форумах и сайтах и размещай смайлики в два клика!";
+			rCont.id = "radioContHelp";
+
+			r1.innerHTML = "Шаг 1";
+			r2.innerHTML = "Шаг 2";
+			r3.innerHTML = "Шаг 3";
+
+			rCont.appendChild(r1);
+			rCont.appendChild(r2);
+			rCont.appendChild(r3);
+
+			t1.innerHTML = img1.alt = "1. Перетащи красный значок Smile Pack в закладки.";
+			t2.innerHTML = img2.alt = "2. Создай директории из любимых смайликов используя библиотеки.";
+			t3.innerHTML = img3.alt = "3. Открывай Smile Pack на форумах и сайтах и размещай смайлики в два клика!";
 
 			img1.src = "img/1.png";
 			img2.src = "img/2.png";
@@ -930,6 +945,9 @@
 			li2.appendChild(t2);
 			li3.appendChild(t3);
 
+			// первоначальные настройки
+			r1.className = li1.className = "active";
+
 			li1.appendChild(img1);
 			li2.appendChild(img2);
 			li3.appendChild(img3);
@@ -938,7 +956,36 @@
 			ol.appendChild(li2);
 			ol.appendChild(li3);
 
-			container.appendChild(ol);
+			frag.appendChild(rCont);
+			frag.appendChild(ol);
+
+			container.appendChild(frag);
+
+			rCont.onmousedown = function (e) {
+				e = fixEvent(e);
+
+				if (e.which !== 1 || e.target.tagName !== "SPAN" || e.target.className === "active") {
+					return;
+				}
+
+				switch (e.target) {
+				case r1:
+					r1.className = li1.className = "active";
+					r2.className = li2.className = "";
+					r3.className = li3.className = "";
+					break;
+				case r2:
+					r1.className = li1.className = "";
+					r2.className = li2.className = "active";
+					r3.className = li3.className = "";
+					break;
+				case r3:
+					r1.className = li1.className = "";
+					r2.className = li2.className = "";
+					r3.className = li3.className = "active";
+					break;
+				}
+			};
 		},
 
 	// Открывает видео в контейнере (help)
