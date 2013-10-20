@@ -592,9 +592,12 @@ img.active {
 	font-size: 13px;
 	line-height: 15px;
 	position: absolute;
-	right: 6px;
-	top: 2px;
+	right: 10px;
+	top: 5px;
 	display: none;
+	width: 15px;
+	height: 15px;
+	text-align: center;
 }
 
 #dirList li.active {
