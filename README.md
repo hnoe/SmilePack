@@ -13,10 +13,6 @@
 	<a href="http://caniuse.com/#feat=json">JSON parsing</a>
 </p>
 
-<h2>Сайт:</h2>
-
-<p><a href="http://sp.hnoe.ru">http://sp.hnoe.ru</a></p>
-
 <h2>Файлы приложения:</h2>
 
 <h3>сайт:</h3>
