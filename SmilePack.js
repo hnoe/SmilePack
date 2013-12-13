@@ -428,7 +428,7 @@
 				message.id = "mCreate";
 
 				p.innerHTML = "Введи имя для новой директории Smile Pack и нажми сохранить.<br>" +
-					"(используй латиницу, цифры и андескор)";
+					"(используй латиницу, цифры и андерскор)";
 				p.className = "mCreateP";
 
 				inputText.type = "text";
