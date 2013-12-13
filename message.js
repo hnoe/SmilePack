@@ -1,9 +1,9 @@
 // ========================================================================
 // Smile Pack v1.1
-// http://sp.hnoe.ru
+// http://sp.lgick.ru
 // ========================================================================
-// Copyright 2012 hnoe
-// Email: hnoe@hnoe.ru
+// Copyright 2012 lgick
+// Email: lgick@yandex.ru
 //
 // Licensed under the GNU GPLv2
 // you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@
 	// Вызывется из getPosition. Генерирует новое сообщение с вложенным ключом. Удаляет значение ключа,
 	// отправляет сообщение окну, хозяину ключа.
 		insertSML = function (element, before, after) {
-			var sml = '[URL=http://sp.hnoe.ru/][IMG]http://sp.hnoe.ru/' + data + '[/IMG][/URL]';
+			var sml = '[URL=http://sp.lgick.ru/][IMG]http://sp.lgick.ru/' + data + '[/IMG][/URL]';
 			element.value = before + sml + after;
 
 			data = "";

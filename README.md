@@ -76,5 +76,5 @@
 <hr>
 
 <p>
-	&copy; 2012 hnoe. Email: <a href="mailto:hnoe@hnoe.ru">hnoe@hnoe.ru</a><br>
+	&copy; 2012 lgick. Email: <a href="mailto:lgick@yandex.ru">lgick@yandex.ru</a><br>
 </p>

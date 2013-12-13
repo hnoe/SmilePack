@@ -1,9 +1,9 @@
 // ========================================================================
 // Smile Pack v1.1
-// http://sp.hnoe.ru
+// http://sp.lgick.ru
 // ========================================================================
-// Copyright 2012 hnoe
-// Email: hnoe@hnoe.ru
+// Copyright 2012 lgick
+// Email: lgick@yandex.ru
 //
 // Licensed under the GNU GPLv2
 // you may not use this file except in compliance with the License.

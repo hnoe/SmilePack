@@ -1,9 +1,9 @@
 // ========================================================================
 // Smile Pack v1.1
-// http://sp.hnoe.ru
+// http://sp.lgick.ru
 // ========================================================================
-// Copyright 2012 hnoe
-// Email: hnoe@hnoe.ru
+// Copyright 2012 lgick
+// Email: lgick@yandex.ru
 //
 // Licensed under the GNU GPLv2
 // you may not use this file except in compliance with the License.
@@ -140,7 +140,7 @@
 			} else {
 				document.body.style.textAlign = "center";
 				document.body.innerHTML = 'Ты еще не создал Smile Pack. Посети ' +
-					'<a onclick="return !window.open(this.href)" href="http://sp.hnoe.ru/">сайт</a>.';
+					'<a onclick="return !window.open(this.href)" href="http://sp.lgick.ru/">сайт</a>.';
 			}
 		},
 
